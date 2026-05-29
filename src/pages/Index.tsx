@@ -72,10 +72,23 @@ export default function Index() {
             {/* Item 1 */}
             <div className="menu-card">
               <span className="menu-tag">Хит продаж</span>
-              <img
-                src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Товар 1"
-              />
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", aspectRatio: "4/3", overflow: "hidden" }}>
+                <img
+                  src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/5e1da489-00fb-447b-a76b-2f1b533fc6d3.jpg"
+                  alt="Бомбочка для ванны"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", borderRight: "2px solid var(--bg)", borderBottom: "2px solid var(--bg)" }}
+                />
+                <img
+                  src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/66ca7b09-ef5c-45e9-b0ae-bbb0ff8b72ba.jpg"
+                  alt="Кружка поросёнок"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", borderLeft: "2px solid var(--bg)", borderBottom: "2px solid var(--bg)" }}
+                />
+                <img
+                  src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/1fcba28a-1d17-4a8e-a7ed-df66a33feaec.jpg"
+                  alt="Пушистый поросёнок"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", gridColumn: "span 2", borderTop: "2px solid var(--bg)" }}
+                />
+              </div>
               <div className="menu-card-body">
                 <div
                   style={{

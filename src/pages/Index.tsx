@@ -193,7 +193,7 @@ export default function Index() {
             </div>
             <div className="social-item">
               <img
-                src="https://images.unsplash.com/photo-1612833603922-5b2e08c20296?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/b6b8021a-a9ae-4cc6-93af-e921de2f4849.jpg"
                 alt="Фото 3"
               />
             </div>

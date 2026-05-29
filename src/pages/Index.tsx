@@ -125,8 +125,8 @@ export default function Index() {
                 Популярное
               </span>
               <img
-                src="https://images.unsplash.com/photo-1612833603922-5b2e08c20296?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Товар 3"
+                src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/984a3f4a-0ea1-4790-a777-aade609ada59.jpg"
+                alt="Кружка поросёнок"
               />
               <div className="menu-card-body">
                 <div

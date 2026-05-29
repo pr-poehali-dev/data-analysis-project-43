@@ -100,8 +100,8 @@ export default function Index() {
                 Новинка
               </span>
               <img
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Товар 2"
+                src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/5d566b12-05b8-436e-a4c3-a9444e5d714a.jpg"
+                alt="Пушистый поросёнок"
               />
               <div className="menu-card-body">
                 <div

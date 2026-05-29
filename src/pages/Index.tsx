@@ -181,8 +181,8 @@ export default function Index() {
           <div className="social-grid">
             <div className="social-item">
               <img
-                src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="Фото 1"
+                src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/files/4e690a69-e9b1-48cf-a680-09a16b5b851b.jpg"
+                alt="Розовые мыльные пузыри"
               />
             </div>
             <div className="social-item">

@@ -72,7 +72,7 @@ export default function Index() {
             {/* Item 1 */}
             <div className="menu-card">
               <span className="menu-tag">Хит продаж</span>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", aspectRatio: "4/3", overflow: "hidden" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "100px 100px", overflow: "hidden", maxHeight: "200px" }}>
                 <img
                   src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/5e1da489-00fb-447b-a76b-2f1b533fc6d3.jpg"
                   alt="Бомбочка для ванны"
@@ -86,7 +86,7 @@ export default function Index() {
                 <img
                   src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/1fcba28a-1d17-4a8e-a7ed-df66a33feaec.jpg"
                   alt="Пушистый поросёнок"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", gridColumn: "span 2", borderTop: "2px solid var(--bg)" }}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", gridColumn: "span 2", borderTop: "2px solid var(--bg)" }}
                 />
               </div>
               <div className="menu-card-body">

@@ -236,7 +236,7 @@ export default function Index() {
               <img src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/files/6a7c3c16-1c1d-4a8b-a4b4-a88286ebb126.jpg" alt="Фото 2" />
             </div>
             <div className="social-item">
-              <img src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/b6b8021a-a9ae-4cc6-93af-e921de2f4849.jpg" alt="Фото 3" />
+              <img src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/files/0b6895dc-9a4c-4d48-8f08-d257c27e7663.jpg" alt="Фото 3" />
             </div>
             <div className="social-item">
               <img src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/files/3347aa5e-9ec1-458a-8e79-4d44928f0dd9.jpg" alt="Фото 4" />

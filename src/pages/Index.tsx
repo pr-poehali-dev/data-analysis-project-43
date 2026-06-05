@@ -55,7 +55,7 @@ export default function Index() {
         <nav>
           <a href="#" onClick={(e) => { e.preventDefault(); scrollToCatalog(); }}>Каталог</a>
           <a href="#" onClick={(e) => { e.preventDefault(); navigate("/about"); }}>О нас</a>
-          <a href="#">Доставка</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); navigate("/delivery"); }}>Доставка</a>
           <a href="#">Контакты</a>
         </nav>
         <button

@@ -1,7 +1,49 @@
+import { useCart } from "@/context/CartContext";
+import CartSheet from "@/components/CartSheet";
+import Icon from "@/components/ui/icon";
+
+const PRODUCTS = [
+  {
+    id: "1",
+    name: "Розовый набор",
+    price: 1490,
+    tag: "Хит продаж",
+    tagStyle: {},
+    description: "Уютный подарочный набор в фирменном розовом стиле. Отличный выбор для себя и близких.",
+    image: "https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/5e1da489-00fb-447b-a76b-2f1b533fc6d3.jpg",
+    images: [
+      "https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/5e1da489-00fb-447b-a76b-2f1b533fc6d3.jpg",
+      "https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/66ca7b09-ef5c-45e9-b0ae-bbb0ff8b72ba.jpg",
+      "https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/1fcba28a-1d17-4a8e-a7ed-df66a33feaec.jpg",
+    ],
+  },
+  {
+    id: "2",
+    name: "Пушистый друг",
+    price: 2200,
+    tag: "Новинка",
+    tagStyle: { background: "var(--secondary)" },
+    description: "Мягкая игрушка-поросёнок. Идеальный компаньон для хорошего настроения.",
+    image: "https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/5d566b12-05b8-436e-a4c3-a9444e5d714a.jpg",
+  },
+  {
+    id: "3",
+    name: "Кружка «Хрю»",
+    price: 890,
+    tag: "Популярное",
+    tagStyle: { background: "var(--accent)", color: "var(--dark)" },
+    description: "Фирменная кружка с милым поросёнком. Каждое утро будет розовым!",
+    image: "https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/984a3f4a-0ea1-4790-a777-aade609ada59.jpg",
+  },
+];
+
 export default function Index() {
+  const { addItem, totalCount, setIsOpen } = useCart();
+
   return (
     <>
       <div className="grain-overlay" />
+      <CartSheet />
 
       <header className="header">
         <div className="logo">ПОРОСЮША</div>
@@ -11,7 +53,33 @@ export default function Index() {
           <a href="#">Доставка</a>
           <a href="#">Контакты</a>
         </nav>
-        <button className="btn-cta">Купить</button>
+        <button
+          className="btn-cta"
+          style={{ position: "relative", display: "flex", alignItems: "center", gap: "8px" }}
+          onClick={() => setIsOpen(true)}
+        >
+          <Icon name="ShoppingBag" size={18} />
+          Корзина
+          {totalCount > 0 && (
+            <span style={{
+              position: "absolute",
+              top: "-8px",
+              right: "-8px",
+              background: "var(--primary)",
+              color: "white",
+              borderRadius: "50%",
+              width: "20px",
+              height: "20px",
+              fontSize: "11px",
+              fontWeight: 900,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}>
+              {totalCount}
+            </span>
+          )}
+        </button>
       </header>
 
       <main>
@@ -59,11 +127,7 @@ export default function Index() {
         <section className="section-padding">
           <div className="section-header">
             <h2 className="section-title">ХИТ ПРОДАЖ</h2>
-            <a
-              href="#"
-              className="text-sm md:text-base"
-              style={{ color: "var(--dark)", fontWeight: 800, textTransform: "uppercase" }}
-            >
+            <a href="#" className="text-sm md:text-base" style={{ color: "var(--dark)", fontWeight: 800, textTransform: "uppercase" }}>
               Весь каталог
             </a>
           </div>
@@ -71,91 +135,77 @@ export default function Index() {
           <div className="menu-grid">
             {/* Item 1 */}
             <div className="menu-card">
-              <span className="menu-tag">Хит продаж</span>
+              <span className="menu-tag">{PRODUCTS[0].tag}</span>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "100px 100px", overflow: "hidden", maxHeight: "200px" }}>
                 <img
-                  src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/5e1da489-00fb-447b-a76b-2f1b533fc6d3.jpg"
+                  src={PRODUCTS[0].images![0]}
                   alt="Бомбочка для ванны"
                   style={{ width: "100%", height: "100%", objectFit: "cover", borderRight: "2px solid var(--bg)", borderBottom: "2px solid var(--bg)" }}
                 />
                 <img
-                  src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/66ca7b09-ef5c-45e9-b0ae-bbb0ff8b72ba.jpg"
+                  src={PRODUCTS[0].images![1]}
                   alt="Кружка поросёнок"
                   style={{ width: "100%", height: "100%", objectFit: "cover", borderLeft: "2px solid var(--bg)", borderBottom: "2px solid var(--bg)" }}
                 />
                 <img
-                  src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/1fcba28a-1d17-4a8e-a7ed-df66a33feaec.jpg"
+                  src={PRODUCTS[0].images![2]}
                   alt="Пушистый поросёнок"
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", gridColumn: "span 2", borderTop: "2px solid var(--bg)" }}
                 />
               </div>
               <div className="menu-card-body">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <h3>Розовый набор</h3>
-                  <span className="price">1 490 ₽</span>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
+                  <h3>{PRODUCTS[0].name}</h3>
+                  <span className="price">{PRODUCTS[0].price.toLocaleString("ru-RU")} ₽</span>
                 </div>
-                <p style={{ fontSize: "14px", color: "#666" }}>
-                  Уютный подарочный набор в фирменном розовом стиле. Отличный выбор для себя и близких.
-                </p>
+                <p style={{ fontSize: "14px", color: "#666", marginBottom: "14px" }}>{PRODUCTS[0].description}</p>
+                <button
+                  className="btn-cta"
+                  style={{ width: "100%", background: "var(--primary)", color: "white", justifyContent: "center" }}
+                  onClick={() => addItem({ id: PRODUCTS[0].id, name: PRODUCTS[0].name, price: PRODUCTS[0].price, image: PRODUCTS[0].image })}
+                >
+                  В корзину
+                </button>
               </div>
             </div>
 
             {/* Item 2 */}
             <div className="menu-card">
-              <span className="menu-tag" style={{ background: "var(--secondary)" }}>
-                Новинка
-              </span>
-              <img
-                src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/5d566b12-05b8-436e-a4c3-a9444e5d714a.jpg"
-                alt="Пушистый поросёнок"
-              />
+              <span className="menu-tag" style={PRODUCTS[1].tagStyle}>{PRODUCTS[1].tag}</span>
+              <img src={PRODUCTS[1].image} alt="Пушистый поросёнок" />
               <div className="menu-card-body">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <h3>Пушистый друг</h3>
-                  <span className="price">2 200 ₽</span>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
+                  <h3>{PRODUCTS[1].name}</h3>
+                  <span className="price">{PRODUCTS[1].price.toLocaleString("ru-RU")} ₽</span>
                 </div>
-                <p style={{ fontSize: "14px", color: "#666" }}>Мягкая игрушка-поросёнок. Идеальный компаньон для хорошего настроения.</p>
+                <p style={{ fontSize: "14px", color: "#666", marginBottom: "14px" }}>{PRODUCTS[1].description}</p>
+                <button
+                  className="btn-cta"
+                  style={{ width: "100%", background: "var(--primary)", color: "white", justifyContent: "center" }}
+                  onClick={() => addItem({ id: PRODUCTS[1].id, name: PRODUCTS[1].name, price: PRODUCTS[1].price, image: PRODUCTS[1].image })}
+                >
+                  В корзину
+                </button>
               </div>
             </div>
 
             {/* Item 3 */}
             <div className="menu-card">
-              <span className="menu-tag" style={{ background: "var(--accent)", color: "var(--dark)" }}>
-                Популярное
-              </span>
-              <img
-                src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/984a3f4a-0ea1-4790-a777-aade609ada59.jpg"
-                alt="Кружка поросёнок"
-              />
+              <span className="menu-tag" style={PRODUCTS[2].tagStyle}>{PRODUCTS[2].tag}</span>
+              <img src={PRODUCTS[2].image} alt="Кружка поросёнок" />
               <div className="menu-card-body">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <h3>Кружка «Хрю»</h3>
-                  <span className="price">890 ₽</span>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
+                  <h3>{PRODUCTS[2].name}</h3>
+                  <span className="price">{PRODUCTS[2].price.toLocaleString("ru-RU")} ₽</span>
                 </div>
-                <p style={{ fontSize: "14px", color: "#666" }}>
-                  Фирменная кружка с милым поросёнком. Каждое утро будет розовым!
-                </p>
+                <p style={{ fontSize: "14px", color: "#666", marginBottom: "14px" }}>{PRODUCTS[2].description}</p>
+                <button
+                  className="btn-cta"
+                  style={{ width: "100%", background: "var(--primary)", color: "white", justifyContent: "center" }}
+                  onClick={() => addItem({ id: PRODUCTS[2].id, name: PRODUCTS[2].name, price: PRODUCTS[2].price, image: PRODUCTS[2].image })}
+                >
+                  В корзину
+                </button>
               </div>
             </div>
           </div>
@@ -180,74 +230,59 @@ export default function Index() {
           </h2>
           <div className="social-grid">
             <div className="social-item">
-              <img
-                src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/files/4e690a69-e9b1-48cf-a680-09a16b5b851b.jpg"
-                alt="Розовые мыльные пузыри"
-              />
+              <img src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/files/4e690a69-e9b1-48cf-a680-09a16b5b851b.jpg" alt="Розовые мыльные пузыри" />
             </div>
             <div className="social-item">
-              <img
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="Фото 2"
-              />
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Фото 2" />
             </div>
             <div className="social-item">
-              <img
-                src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/b6b8021a-a9ae-4cc6-93af-e921de2f4849.jpg"
-                alt="Фото 3"
-              />
+              <img src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/b6b8021a-a9ae-4cc6-93af-e921de2f4849.jpg" alt="Фото 3" />
             </div>
             <div className="social-item">
-              <img
-                src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="Фото 4"
-              />
+              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Фото 4" />
             </div>
           </div>
         </section>
       </main>
 
-      <footer>
-        <div>
-          <div className="footer-logo">ПОРОСЮША</div>
-          <p style={{ color: "#666", lineHeight: 1.6 }}>
-            Авторский онлайн-магазин с розовым настроением. Доставляем радость по всей России с 2024 года.
-          </p>
+      <footer className="footer">
+        <div className="footer-grid">
+          <div>
+            <div className="logo" style={{ marginBottom: "15px" }}>ПОРОСЮША</div>
+            <p style={{ fontSize: "14px", color: "#aaa", lineHeight: 1.6 }}>
+              Авторские товары с самым розовым настроением. Делаем мир милее каждый день.
+            </p>
+          </div>
+          <div>
+            <h4 className="footer-title">Покупателям</h4>
+            <ul className="footer-links">
+              <li><a href="#">Доставка и оплата</a></li>
+              <li><a href="#">Возврат</a></li>
+              <li><a href="#">Гарантия</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="footer-title">Компания</h4>
+            <ul className="footer-links">
+              <li><a href="#">О нас</a></li>
+              <li><a href="#">Блог</a></li>
+              <li><a href="#">Партнёрам</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="footer-title">Мы в соцсетях</h4>
+            <ul className="footer-links">
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">VK</a></li>
+              <li><a href="#">Telegram</a></li>
+            </ul>
+          </div>
         </div>
-        <div className="footer-links">
-          <h4>Навигация</h4>
-          <ul>
-            <li>
-              <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
-                Каталог
-              </a>
-            </li>
-            <li>
-              <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
-                О нас
-              </a>
-            </li>
-            <li>
-              <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
-                Доставка
-              </a>
-            </li>
-            <li>
-              <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
-                Политика
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="footer-links">
-          <h4>Часы работы</h4>
-          <ul>
-            <li>Пн–Пт: 9:00–21:00</li>
-            <li>Сб–Вс: 10:00–18:00</li>
-            <li style={{ marginTop: "10px", color: "var(--primary)", fontWeight: 700 }}>
-              Заказы принимаем онлайн
-            </li>
-          </ul>
+        <div className="footer-bottom">
+          <span>© 2024 ПОРОСЮША. Все права защищены.</span>
+          <span>Сделано с ❤ и розовым настроением</span>
         </div>
       </footer>
     </>

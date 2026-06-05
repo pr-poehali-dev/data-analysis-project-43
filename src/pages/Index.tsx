@@ -259,9 +259,9 @@ export default function Index() {
             </p>
           </div>
           <div>
-            <h4 className="footer-title">Покупателям</h4>
+            <h4 className="footer-title">Доставка</h4>
             <ul className="footer-links">
-              <li><a href="#">Доставка и оплата</a></li>
+              <li><a href="#">По всей России</a></li>
               <li><a href="#">Возврат</a></li>
               <li><a href="#">Гарантия</a></li>
               <li><a href="#">FAQ</a></li>
@@ -270,14 +270,17 @@ export default function Index() {
           <div>
             <h4 className="footer-title">Компания</h4>
             <ul className="footer-links">
-              <li><a href="#">О нас</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate("/about"); }}>О нас</a></li>
               <li><a href="#">Блог</a></li>
               <li><a href="#">Партнёрам</a></li>
-              <li><a href="#">Контакты</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="footer-title">Мы в соцсетях</h4>
+            <h4 className="footer-title">Контакты</h4>
+            <ul className="footer-links">
+              <li><a href="tel:867676767">8 676 76 767</a></li>
+            </ul>
+            <h4 className="footer-title" style={{ marginTop: "16px" }}>Мы в соцсетях</h4>
             <ul className="footer-links">
               <li><a href="#">Instagram</a></li>
               <li><a href="#">VK</a></li>

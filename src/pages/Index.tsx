@@ -230,16 +230,16 @@ export default function Index() {
           </h2>
           <div className="social-grid">
             <div className="social-item">
-              <img src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/files/4e690a69-e9b1-48cf-a680-09a16b5b851b.jpg" alt="Розовые мыльные пузыри" />
+              <img src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/files/1defc27a-1aad-4988-906f-919850b84037.jpg" alt="Фото 1" />
             </div>
             <div className="social-item">
-              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Фото 2" />
+              <img src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/files/6a7c3c16-1c1d-4a8b-a4b4-a88286ebb126.jpg" alt="Фото 2" />
             </div>
             <div className="social-item">
               <img src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/bucket/b6b8021a-a9ae-4cc6-93af-e921de2f4849.jpg" alt="Фото 3" />
             </div>
             <div className="social-item">
-              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Фото 4" />
+              <img src="https://cdn.poehali.dev/projects/c8fb12dc-f4ad-4877-9d2a-f1d530a0076c/files/3347aa5e-9ec1-458a-8e79-4d44928f0dd9.jpg" alt="Фото 4" />
             </div>
           </div>
         </section>

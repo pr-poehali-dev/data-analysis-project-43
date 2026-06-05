@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useCart } from "@/context/CartContext";
 import CartSheet from "@/components/CartSheet";
 import Icon from "@/components/ui/icon";
@@ -39,6 +40,8 @@ const PRODUCTS = [
 
 export default function Index() {
   const { addItem, totalCount, setIsOpen } = useCart();
+  const catalogRef = useRef<HTMLElement>(null);
+  const scrollToCatalog = () => catalogRef.current?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <>
@@ -48,7 +51,7 @@ export default function Index() {
       <header className="header">
         <div className="logo">ПОРОСЮША</div>
         <nav>
-          <a href="#">Каталог</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); scrollToCatalog(); }}>Каталог</a>
           <a href="#">О нас</a>
           <a href="#">Доставка</a>
           <a href="#">Контакты</a>
@@ -94,7 +97,7 @@ export default function Index() {
               Авторские товары с характером. Только качественные вещи с самым розовым настроением — для тех, кто знает толк в милоте.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
-              <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }}>
+              <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }} onClick={scrollToCatalog}>
                 В каталог
               </button>
               <button className="btn-cta" style={{ background: "white" }}>
@@ -124,7 +127,7 @@ export default function Index() {
           </div>
         </div>
 
-        <section className="section-padding">
+        <section className="section-padding" ref={catalogRef}>
           <div className="section-header">
             <h2 className="section-title">ХИТ ПРОДАЖ</h2>
             <a href="#" className="text-sm md:text-base" style={{ color: "var(--dark)", fontWeight: 800, textTransform: "uppercase" }}>

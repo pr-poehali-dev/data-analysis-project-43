@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "@/context/CartContext";
 import CartSheet from "@/components/CartSheet";
 import Icon from "@/components/ui/icon";
@@ -40,6 +41,7 @@ const PRODUCTS = [
 
 export default function Index() {
   const { addItem, totalCount, setIsOpen } = useCart();
+  const navigate = useNavigate();
   const catalogRef = useRef<HTMLElement>(null);
   const scrollToCatalog = () => catalogRef.current?.scrollIntoView({ behavior: "smooth" });
 
@@ -52,7 +54,7 @@ export default function Index() {
         <div className="logo">ПОРОСЮША</div>
         <nav>
           <a href="#" onClick={(e) => { e.preventDefault(); scrollToCatalog(); }}>Каталог</a>
-          <a href="#">О нас</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); navigate("/about"); }}>О нас</a>
           <a href="#">Доставка</a>
           <a href="#">Контакты</a>
         </nav>
@@ -100,7 +102,7 @@ export default function Index() {
               <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }} onClick={scrollToCatalog}>
                 В каталог
               </button>
-              <button className="btn-cta" style={{ background: "white" }}>
+              <button className="btn-cta" style={{ background: "white" }} onClick={() => navigate("/about")}>
                 О магазине
               </button>
             </div>
@@ -220,7 +222,7 @@ export default function Index() {
             <p className="vibe-text">
               Поросюша — это не просто магазин. Это целый мир розового настроения. Каждый товар создан с заботой и вниманием к деталям. Мы верим, что милые вещи делают жизнь лучше — и доказываем это каждый день.
             </p>
-            <button className="btn-cta" style={{ background: "var(--dark)", color: "white", borderColor: "white" }}>
+            <button className="btn-cta" style={{ background: "var(--dark)", color: "white", borderColor: "white" }} onClick={() => navigate("/about")}>
               Наша история
             </button>
           </div>
